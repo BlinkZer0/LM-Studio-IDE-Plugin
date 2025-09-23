@@ -1,0 +1,174 @@
+{
+  "name": "blinkzero-local-completion",
+  "displayName": "BlinkZeroLocalCompletion",
+  "publisher": "your-name",
+  "version": "0.1.0",
+  "description": "AI-powered VS Code extension integrating Local LLM with Agent-Cascade MCP tools for instant code completion",
+  "icon": "$(zap)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/LocalLLM-IDE.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "BlinkZero Local Completion",
+      "properties": {
+        "blinkzero.baseUrl": {
+          "type": "string",
+          "default": "http://10.5.0.2:11434/v1",
+          "description": "Local LLM OpenAI-compatible base URL (e.g., http://localhost:1234/v1)"
+        },
+        "blinkzero.model": {
+          "type": "string",
+          "default": "qwen2.5-coder",
+          "description": "Default chat/completions model id"
+        },
+        "blinkzero.embeddingsModel": {
+          "type": "string",
+          "default": "nomic-embed-text",
+          "description": "Embeddings model id for RAG"
+        },
+        "blinkzero.maxContextFiles": {
+          "type": "number",
+          "default": 6
+        },
+        "blinkzero.mcp.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:7777",
+          "description": "Agent-Cascade MCP server URL"
+        },
+        "blinkzero.mcp.allowedTools": {
+          "type": "array",
+          "default": [
+            "mcp1_fs_read_text",
+            "mcp1_fs_search",
+            "mcp1_proc_run",
+            "mcp1_advanced_grep",
+            "mcp1_file_ops"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Allow-list of MCP tool names callable by the model"
+        },
+        "blinkzero.localTools.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable local VS Code tools (file ops, diff apply, terminal run)"
+        },
+        "blinkzero.localTools.allowedTools": {
+          "type": "array",
+          "default": [
+            "vscode_fs_read_text",
+            "vscode_fs_write_text",
+            "vscode_fs_list",
+            "vscode_apply_unified_diff",
+            "vscode_terminal_run"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Allow-list of local VS Code tools callable by the model"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "blinkzero-container",
+          "title": "BlinkZero Local Completion",
+          "icon": "$(zap)"
+        }
+      ]
+    },
+    "views": {
+      "blinkzero-container": [
+        {
+          "id": "blinkzero-chat",
+          "name": "Chat",
+          "icon": "$(comment-discussion)"
+        },
+        {
+          "id": "blinkzero-tools",
+          "name": "Tools",
+          "icon": "$(tools)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "blinkzero.chat.open",
+        "title": "BlinkZero: Open Chat"
+      },
+      {
+        "command": "blinkzero.applyDiff",
+        "title": "BlinkZero: Apply Proposed Diff"
+      },
+      {
+        "command": "blinkzero.explainSelection",
+        "title": "BlinkZero: Explain Selection"
+      },
+      {
+        "command": "blinkzero.writeTests",
+        "title": "BlinkZero: Write Tests for File"
+      },
+      {
+        "command": "blinkzero.refactorFunction",
+        "title": "BlinkZero: Refactor Function"
+      },
+      {
+        "title": "BlinkZero: Run Shell/PowerShell Command",
+        "command": "blinkzero.runShellCommand"
+      },
+      {
+        "title": "BlinkZero: Check Local LLM Connection",
+        "command": "blinkzero.tools.checkConnection"
+      },
+      {
+        "title": "BlinkZero: Show Model Info",
+        "command": "blinkzero.tools.showModelInfo"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "package": "vsce package",
+    "lint": "eslint src --ext .ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
+    "mocha": "^10.2.0",
+    "glob": "^10.3.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.22.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8"
+  },
+  "dependencies": {
+    "openai": "^4.28.0",
+    "better-sqlite3": "^9.2.2",
+    "fast-glob": "^3.3.2",
+    "micromatch": "^4.0.5",
+    "undici": "^6.6.2",
+    "zod": "^3.22.4"
+  }
+}

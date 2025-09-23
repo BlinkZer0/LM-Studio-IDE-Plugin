@@ -1,0 +1,15 @@
+{
+  "// LM Studio Extension Settings": "Copy these to your Windsurf settings.json",
+  "lms.baseUrl": "http://10.5.0.2:11434/v1",
+  "lms.model": "deepseek/deepseek-coder-6.7b-instruct-q4_0",
+  "lms.embeddingsModel": "nomic-embed-text",
+  "lms.maxContextFiles": 6,
+  "lms.mcp.serverUrl": "http://localhost:7777",
+  "lms.mcp.allowedTools": [
+    "mcp1_fs_read_text",
+    "mcp1_fs_search",
+    "mcp1_proc_run",
+    "mcp1_advanced_grep",
+    "mcp1_file_ops"
+  ]
+}
