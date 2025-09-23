@@ -42,7 +42,7 @@ export class ToolsTreeProvider implements vscode.TreeDataProvider<vscode.TreeIte
       item.command = {
         command: commandId,
         title: label,
-        arguments: ['blinkzero']
+        arguments: ['lmstudio']
       };
     }
 

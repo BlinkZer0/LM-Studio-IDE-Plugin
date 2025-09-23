@@ -1,9 +1,9 @@
 {
-  "name": "blinkzero-local-completion",
-  "displayName": "BlinkZeroLocalCompletion",
+  "name": "lmstudio-ide-plugin",
+  "displayName": "LM Studio Chat",
   "publisher": "your-name",
   "version": "0.1.0",
-  "description": "AI-powered VS Code extension integrating Local LLM with Agent-Cascade MCP tools for instant code completion",
+  "description": "AI-powered VS Code extension integrating LM Studio and Local LLM servers with Agent-Cascade MCP tools for instant code completion",
   "icon": "$(zap)",
   "repository": {
     "type": "git",
@@ -23,33 +23,33 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "BlinkZero Local Completion",
+      "title": "LM Studio",
       "properties": {
-        "blinkzero.baseUrl": {
+        "lmstudio.baseUrl": {
           "type": "string",
           "default": "http://10.5.0.2:11434/v1",
           "description": "Local LLM OpenAI-compatible base URL (e.g., http://localhost:1234/v1)"
         },
-        "blinkzero.model": {
+        "lmstudio.model": {
           "type": "string",
           "default": "qwen2.5-coder",
           "description": "Default chat/completions model id"
         },
-        "blinkzero.embeddingsModel": {
+        "lmstudio.embeddingsModel": {
           "type": "string",
           "default": "nomic-embed-text",
           "description": "Embeddings model id for RAG"
         },
-        "blinkzero.maxContextFiles": {
+        "lmstudio.maxContextFiles": {
           "type": "number",
           "default": 6
         },
-        "blinkzero.mcp.serverUrl": {
+        "lmstudio.mcp.serverUrl": {
           "type": "string",
           "default": "http://localhost:7777",
           "description": "Agent-Cascade MCP server URL"
         },
-        "blinkzero.mcp.allowedTools": {
+        "lmstudio.mcp.allowedTools": {
           "type": "array",
           "default": [
             "mcp1_fs_read_text",
@@ -63,12 +63,12 @@
           },
           "description": "Allow-list of MCP tool names callable by the model"
         },
-        "blinkzero.localTools.enable": {
+        "lmstudio.localTools.enable": {
           "type": "boolean",
           "default": true,
           "description": "Enable local VS Code tools (file ops, diff apply, terminal run)"
         },
-        "blinkzero.localTools.allowedTools": {
+        "lmstudio.localTools.allowedTools": {
           "type": "array",
           "default": [
             "vscode_fs_read_text",
@@ -87,21 +87,21 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "blinkzero-container",
-          "title": "BlinkZero Local Completion",
+          "id": "lmstudio-container",
+          "title": "LM Studio",
           "icon": "$(zap)"
         }
       ]
     },
     "views": {
-      "blinkzero-container": [
+      "lmstudio-container": [
         {
-          "id": "blinkzero-chat",
+          "id": "lmstudio-chat",
           "name": "Chat",
           "icon": "$(comment-discussion)"
         },
         {
-          "id": "blinkzero-tools",
+          "id": "lmstudio-tools",
           "name": "Tools",
           "icon": "$(tools)"
         }
@@ -109,36 +109,36 @@
     },
     "commands": [
       {
-        "command": "blinkzero.chat.open",
-        "title": "BlinkZero: Open Chat"
+        "command": "lmstudio.chat.open",
+        "title": "LM Studio: Open Chat"
       },
       {
-        "command": "blinkzero.applyDiff",
-        "title": "BlinkZero: Apply Proposed Diff"
+        "command": "lmstudio.applyDiff",
+        "title": "LM Studio: Apply Proposed Diff"
       },
       {
-        "command": "blinkzero.explainSelection",
-        "title": "BlinkZero: Explain Selection"
+        "command": "lmstudio.explainSelection",
+        "title": "LM Studio: Explain Selection"
       },
       {
-        "command": "blinkzero.writeTests",
-        "title": "BlinkZero: Write Tests for File"
+        "command": "lmstudio.writeTests",
+        "title": "LM Studio: Write Tests for File"
       },
       {
-        "command": "blinkzero.refactorFunction",
-        "title": "BlinkZero: Refactor Function"
+        "command": "lmstudio.refactorFunction",
+        "title": "LM Studio: Refactor Function"
       },
       {
-        "title": "BlinkZero: Run Shell/PowerShell Command",
-        "command": "blinkzero.runShellCommand"
+        "title": "LM Studio: Run Shell/PowerShell Command",
+        "command": "lmstudio.runShellCommand"
       },
       {
-        "title": "BlinkZero: Check Local LLM Connection",
-        "command": "blinkzero.tools.checkConnection"
+        "title": "LM Studio: Check Local LLM Connection",
+        "command": "lmstudio.tools.checkConnection"
       },
       {
-        "title": "BlinkZero: Show Model Info",
-        "command": "blinkzero.tools.showModelInfo"
+        "title": "LM Studio: Show Model Info",
+        "command": "lmstudio.tools.showModelInfo"
       }
     ]
   },

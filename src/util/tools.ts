@@ -26,7 +26,7 @@ export async function withTools(messages: any[]): Promise<{
   toolDefs: MCPTool[] | undefined;
   serverUrl: string | undefined;
 }> {
-  const config = vscode.workspace.getConfiguration('lms');
+  const config = vscode.workspace.getConfiguration('lmstudio');
   const allowedTools = config.get<string[]>('mcp.allowedTools') || [];
   const serverUrl = config.get<string>('mcp.serverUrl');
   
@@ -130,7 +130,7 @@ export async function getMCPServerStatus(): Promise<{
   availableTools: string[];
   error?: string;
 }> {
-  const config = vscode.workspace.getConfiguration('lms');
+  const config = vscode.workspace.getConfiguration('lmstudio');
   const serverUrl = config.get<string>('mcp.serverUrl');
   
   if (!serverUrl) {

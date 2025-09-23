@@ -314,7 +314,7 @@ export async function runShellCommand() {
   }
   
   try {
-    const terminal = vscode.window.createTerminal('BlinkZero Command');
+    const terminal = vscode.window.createTerminal('LM Studio Command');
     terminal.sendText(command);
     terminal.show();
     
@@ -363,12 +363,12 @@ export async function checkLMSConnection() {
  */
 export async function showModelInfo() {
   try {
-    const config = vscode.workspace.getConfiguration('blinkzero');
+    const config = vscode.workspace.getConfiguration('lmstudio');
     const baseUrl = config.get<string>('baseUrl', 'http://localhost:1234/v1');
     const model = config.get<string>('model', 'default');
     const embeddingsModel = config.get<string>('embeddingsModel', 'default');
     
-    const info = `# BlinkZero Local Completion - Model Information
+    const info = `# LM Studio IDE Plugin - Model Information
 
 ## Configuration
 - **Base URL**: ${baseUrl}

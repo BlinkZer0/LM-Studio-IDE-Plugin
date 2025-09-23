@@ -5,7 +5,7 @@ import OpenAI from 'openai';
  * Creates and returns an OpenAI client configured for Local LLM
  */
 export function client(): OpenAI {
-  const config = vscode.workspace.getConfiguration('blinkzero');
+  const config = vscode.workspace.getConfiguration('lmstudio');
   const baseURL = config.get<string>('baseUrl') || 'http://localhost:1234/v1';
   
   // Local LLM servers ignore the API key but OpenAI client requires it
@@ -23,7 +23,7 @@ export function client(): OpenAI {
  * Get the configured model name
  */
 export function getModel(): string {
-  const config = vscode.workspace.getConfiguration('blinkzero');
+  const config = vscode.workspace.getConfiguration('lmstudio');
   return config.get<string>('model') || 'qwen2.5-coder';
 }
 
@@ -31,7 +31,7 @@ export function getModel(): string {
  * Get the configured embeddings model name
  */
 export function getEmbeddingsModel(): string {
-  const config = vscode.workspace.getConfiguration('blinkzero');
+  const config = vscode.workspace.getConfiguration('lmstudio');
   return config.get<string>('embeddingsModel') || 'nomic-embed-text';
 }
 

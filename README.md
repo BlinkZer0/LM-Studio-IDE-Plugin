@@ -282,6 +282,16 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 For issues and feature requests, please use the GitHub issue tracker.
 
+## Acknowledgments
+
+Special thanks to the creators and maintainers of:
+
+- **[LM Studio](https://lmstudio.ai/)** - For creating an exceptional platform that makes running local LLMs accessible, fast, and reliable. Their intuitive interface and robust OpenAI-compatible API have made local AI development a joy.
+
+- **[Ollama](https://ollama.ai/)** - For pioneering the local LLM movement with their elegant, Docker-like approach to model management. Their commitment to making AI models easy to run locally has democratized access to powerful language models.
+
+These platforms have revolutionized how developers interact with AI models, enabling privacy-focused, cost-effective, and lightning-fast AI assistance directly on our machines. This extension exists because of their incredible work in making local AI accessible to everyone.
+
 ---
 
 **Happy coding with LM Studio! ⚡🚀**

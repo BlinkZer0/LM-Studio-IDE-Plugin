@@ -9,7 +9,7 @@ import { explainSelection, writeTests, refactorFunction, applyDiff, runShellComm
  * Extension activation function - called when VS Code loads the extension
  */
 export async function activate(ctx: vscode.ExtensionContext) {
-  console.log('BlinkZero Local Completion extension is now active!');
+  console.log('LM Studio IDE Plugin extension is now active!');
 
   // Register inline completion provider for all file types
   const inlineProvider = new InlineProvider();
@@ -28,29 +28,29 @@ export async function activate(ctx: vscode.ExtensionContext) {
   const toolsTreeProvider = new ToolsTreeProvider();
   
   ctx.subscriptions.push(
-    vscode.window.registerTreeDataProvider('blinkzero-chat', chatTreeProvider),
-    vscode.window.registerTreeDataProvider('blinkzero-tools', toolsTreeProvider)
+    vscode.window.registerTreeDataProvider('lmstudio-chat', chatTreeProvider),
+    vscode.window.registerTreeDataProvider('lmstudio-tools', toolsTreeProvider)
   );
 
   // Register command palette commands
   ctx.subscriptions.push(
-    vscode.commands.registerCommand('blinkzero.chat.open', () => ChatPanel.reveal()),
-    vscode.commands.registerCommand('blinkzero.applyDiff', () => applyDiff()),
-    vscode.commands.registerCommand('blinkzero.explainSelection', () => explainSelection()),
-    vscode.commands.registerCommand('blinkzero.writeTests', () => writeTests()),
-    vscode.commands.registerCommand('blinkzero.refactorFunction', () => refactorFunction()),
-    vscode.commands.registerCommand('blinkzero.runShellCommand', () => runShellCommand()),
-    vscode.commands.registerCommand('blinkzero.tools.checkConnection', () => checkLMSConnection()),
-    vscode.commands.registerCommand('blinkzero.tools.showModelInfo', () => showModelInfo())
+    vscode.commands.registerCommand('lmstudio.chat.open', () => ChatPanel.reveal()),
+    vscode.commands.registerCommand('lmstudio.applyDiff', () => applyDiff()),
+    vscode.commands.registerCommand('lmstudio.explainSelection', () => explainSelection()),
+    vscode.commands.registerCommand('lmstudio.writeTests', () => writeTests()),
+    vscode.commands.registerCommand('lmstudio.refactorFunction', () => refactorFunction()),
+    vscode.commands.registerCommand('lmstudio.runShellCommand', () => runShellCommand()),
+    vscode.commands.registerCommand('lmstudio.tools.checkConnection', () => checkLMSConnection()),
+    vscode.commands.registerCommand('lmstudio.tools.showModelInfo', () => showModelInfo())
   );
 
   // Show activation message
-  vscode.window.showInformationMessage('BlinkZero Local Completion extension activated! Configure your settings and start coding.');
+  vscode.window.showInformationMessage('LM Studio IDE Plugin activated! Configure your settings and start coding.');
 }
 
 /**
  * Extension deactivation function - called when VS Code unloads the extension
  */
 export function deactivate() {
-  console.log('BlinkZero Local Completion extension is now deactivated.');
+  console.log('LM Studio IDE Plugin extension is now deactivated.');
 }

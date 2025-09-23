@@ -12,11 +12,11 @@ export class ChatTreeProvider implements vscode.TreeDataProvider<vscode.TreeItem
   constructor() {
     // Initialize with welcome items
     this.chatHistory = [
-      this.createChatItem('Welcome to BlinkZero Chat', 'Click to open chat panel', 'info', 'blinkzero.chat.open'),
+      this.createChatItem('Welcome to LM Studio Chat', 'Click to open chat panel', 'info', 'lmstudio.chat.open'),
       this.createChatItem('Quick Actions', '', 'folder'),
-      this.createChatItem('  • Explain Selection', 'Explain selected code', 'action', 'blinkzero.explainSelection'),
-      this.createChatItem('  • Write Tests', 'Generate tests for current file', 'action', 'blinkzero.writeTests'),
-      this.createChatItem('  • Refactor Function', 'Refactor selected function', 'action', 'blinkzero.refactorFunction'),
+      this.createChatItem('  • Explain Selection', 'Explain selected code', 'action', 'lmstudio.explainSelection'),
+      this.createChatItem('  • Write Tests', 'Generate tests for current file', 'action', 'lmstudio.writeTests'),
+      this.createChatItem('  • Refactor Function', 'Refactor selected function', 'action', 'lmstudio.refactorFunction'),
     ];
   }
 
