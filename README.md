@@ -1,6 +1,6 @@
-# BlinkZeroLocalCompletion
+# LM Studio IDE Plugin
 
-A powerful VS Code extension that integrates Local LLM servers with Agent-Cascade MCP tools, providing AI-powered coding assistance directly in your editor with instant completions.
+A powerful VS Code extension that integrates LM Studio and other Local LLM servers with Agent-Cascade MCP tools, providing AI-powered coding assistance directly in your editor with instant completions.
 
 ## Features
 
@@ -17,12 +17,12 @@ A powerful VS Code extension that integrates Local LLM servers with Agent-Cascad
 - Beautiful, VS Code-themed interface
 
 ### 🛠️ Command Palette Actions
-- **BlinkZero: Explain Selection** - Get detailed explanations of selected code
-- **BlinkZero: Write Tests** - Generate comprehensive unit tests
-- **BlinkZero: Refactor Function** - Improve code quality and structure
-- **BlinkZero: Apply Proposed Diff** - Apply code changes from diffs
-- **BlinkZero: Run Shell Command** - Execute terminal commands
-- **BlinkZero: Check Connection** - Test Local LLM connectivity
+- **LM Studio: Explain Selection** - Get detailed explanations of selected code
+- **LM Studio: Write Tests** - Generate comprehensive unit tests
+- **LM Studio: Refactor Function** - Improve code quality and structure
+- **LM Studio: Apply Proposed Diff** - Apply code changes from diffs
+- **LM Studio: Run Shell Command** - Execute terminal commands
+- **LM Studio: Check Connection** - Test Local LLM connectivity
 
 ### 🔧 MCP Tools Integration
 - Bridge to Agent-Cascade MCP server
@@ -31,9 +31,9 @@ A powerful VS Code extension that integrates Local LLM servers with Agent-Cascad
 
 ## Screenshot
 
-![BlinkZero Extension in Action](Screenshot%202025-09-23%20013019.png)
+![LM Studio Extension in Action](Screenshot%202025-09-23%20013019.png)
 
-*BlinkZero extension providing AI-powered coding assistance with inline completions and chat panel integration*
+*LM Studio extension providing AI-powered coding assistance with inline completions and chat panel integration*
 
 ## Prerequisites
 
@@ -86,9 +86,9 @@ Configure the extension through VS Code settings (`Ctrl+,`):
 
 ```json
 {
-  "blinkzero.baseUrl": "http://localhost:1234/v1",
-  "blinkzero.model": "qwen2.5-coder",
-  "blinkzero.embeddingsModel": "nomic-embed-text"
+  "lmstudio.baseUrl": "http://localhost:1234/v1",
+  "lmstudio.model": "qwen2.5-coder",
+  "lmstudio.embeddingsModel": "nomic-embed-text"
 }
 ```
 
@@ -96,8 +96,8 @@ Configure the extension through VS Code settings (`Ctrl+,`):
 
 ```json
 {
-  "blinkzero.mcp.serverUrl": "http://localhost:7777",
-  "blinkzero.mcp.allowedTools": [
+  "lmstudio.mcp.serverUrl": "http://localhost:7777",
+  "lmstudio.mcp.allowedTools": [
     "mcp1_fs_read_text",
     "mcp1_fs_search", 
     "mcp1_proc_run",
@@ -111,14 +111,14 @@ Configure the extension through VS Code settings (`Ctrl+,`):
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `blinkzero.baseUrl` | `http://10.5.0.2:11434/v1` | Local LLM OpenAI-compatible base URL |
-| `blinkzero.model` | `qwen2.5-coder` | Default chat/completions model |
-| `blinkzero.embeddingsModel` | `nomic-embed-text` | Embeddings model for RAG |
-| `blinkzero.maxContextFiles` | `6` | Maximum context files for RAG |
-| `blinkzero.mcp.serverUrl` | `http://localhost:7777` | Agent-Cascade MCP server URL |
-| `blinkzero.mcp.allowedTools` | `[...]` | Allowlist of MCP tool names |
-| `blinkzero.localTools.enable` | `true` | Enable local VS Code tools |
-| `blinkzero.localTools.allowedTools` | `[...]` | Allowlist of local tool names |
+| `lmstudio.baseUrl` | `http://10.5.0.2:11434/v1` | Local LLM OpenAI-compatible base URL |
+| `lmstudio.model` | `qwen2.5-coder` | Default chat/completions model |
+| `lmstudio.embeddingsModel` | `nomic-embed-text` | Embeddings model for RAG |
+| `lmstudio.maxContextFiles` | `6` | Maximum context files for RAG |
+| `lmstudio.mcp.serverUrl` | `http://localhost:7777` | Agent-Cascade MCP server URL |
+| `lmstudio.mcp.allowedTools` | `[...]` | Allowlist of MCP tool names |
+| `lmstudio.localTools.enable` | `true` | Enable local VS Code tools |
+| `lmstudio.localTools.allowedTools` | `[...]` | Allowlist of local tool names |
 
 ## Usage
 
@@ -137,8 +137,8 @@ Configure the extension through VS Code settings (`Ctrl+,`):
 
 ### Chat Panel
 
-1. Click the ⚡ BlinkZero icon in the Activity Bar, or
-2. Use `Ctrl+Shift+P` → "BlinkZero: Open Chat"
+1. Click the ⚡ LM Studio icon in the Activity Bar, or
+2. Use `Ctrl+Shift+P` → "LM Studio: Open Chat"
 
 #### Chat Directives
 
@@ -155,12 +155,12 @@ Example:
 
 Access AI-powered commands via `Ctrl+Shift+P`:
 
-- **BlinkZero: Explain Selection** - Select code and get detailed explanations
-- **BlinkZero: Write Tests** - Generate unit tests for your current file
-- **BlinkZero: Refactor Function** - Select a function to get refactoring suggestions
-- **BlinkZero: Apply Proposed Diff** - Apply code changes from unified diffs
-- **BlinkZero: Run Shell Command** - Execute terminal commands
-- **BlinkZero: Check Connection** - Test Local LLM connectivity
+- **LM Studio: Explain Selection** - Select code and get detailed explanations
+- **LM Studio: Write Tests** - Generate unit tests for your current file
+- **LM Studio: Refactor Function** - Select a function to get refactoring suggestions
+- **LM Studio: Apply Proposed Diff** - Apply code changes from unified diffs
+- **LM Studio: Run Shell Command** - Execute terminal commands
+- **LM Studio: Check Connection** - Test Local LLM connectivity
 
 ## MCP Tools Integration
 
@@ -169,8 +169,8 @@ This extension can integrate with Agent-Cascade MCP tools for enhanced capabilit
 ### Setting up Agent-Cascade
 
 1. Install and run the Agent-Cascade MCP server
-2. Configure `blinkzero.mcp.serverUrl` to point to your server
-3. Customize `blinkzero.mcp.allowedTools` for security
+2. Configure `lmstudio.mcp.serverUrl` to point to your server
+3. Customize `lmstudio.mcp.allowedTools` for security
 
 ### Available MCP Tools
 
@@ -235,20 +235,20 @@ npm test
 
 **"Cannot connect to Local LLM server"**
 - Ensure your Local LLM server is running and accessible
-- Check that the `blinkzero.baseUrl` setting is correct
+- Check that the `lmstudio.baseUrl` setting is correct
 - Verify the model is loaded in your LLM server
-- Test connection using "BlinkZero: Check Connection" command
+- Test connection using "LM Studio: Check Connection" command
 
 **"No inline completions appearing"**
 - Check that a model is loaded in your LLM server
-- Verify the `blinkzero.model` setting matches your loaded model
+- Verify the `lmstudio.model` setting matches your loaded model
 - Try typing more context to trigger completions
 - Ensure your server supports OpenAI-compatible completions
 
 **"MCP tools not working"**
 - Ensure Agent-Cascade MCP server is running
-- Check `blinkzero.mcp.serverUrl` configuration
-- Verify tools are in the `blinkzero.mcp.allowedTools` allowlist
+- Check `lmstudio.mcp.serverUrl` configuration
+- Verify tools are in the `lmstudio.mcp.allowedTools` allowlist
 
 ### Debug Information
 
@@ -269,7 +269,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Changelog
 
 ### v0.1.0
-- Initial BlinkZero release
+- Initial LM Studio IDE Plugin release
 - Lightning-fast inline code completions
 - Chat panel with @directives
 - Command palette actions
@@ -284,4 +284,4 @@ For issues and feature requests, please use the GitHub issue tracker.
 
 ---
 
-**Happy coding with BlinkZero! ⚡🚀**
+**Happy coding with LM Studio! ⚡🚀**
