@@ -1,6 +1,6 @@
 # LM Studio IDE Plugin
 
-**CHECK THE RELEASES FOR 3 different IDE Plugins that work, VS Code, Cursor, and Windsurf!**
+**CHECK THE RELEASES FOR 3 different IDE Plugins that work, VS Code, Cursor, and Windsurf! (in the sidebar)**
 
 [See it in action](https://youtu.be/iK5xdZFW96Q?si=eKNTVVlLAht45VTO)
 
