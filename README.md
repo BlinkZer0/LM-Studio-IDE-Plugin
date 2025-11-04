@@ -1,6 +1,10 @@
 # LM Studio IDE Plugin
 
 **CHECK THE RELEASES FOR 3 different IDE Plugins that work, VS Code, Cursor, and Windsurf!**
+
+[See it in action](https://youtu.be/iK5xdZFW96Q?si=eKNTVVlLAht45VTO)
+
+
 The google drive link will remain up, and is the same as the Windsurf extension.
 A powerful VS Code extension that integrates LM Studio and other Local LLM servers with Agent-Cascade MCP tools, providing AI-powered coding assistance directly in your editor with instant completions.
 LAZY INSTALL -> C:/Users/USERNAME/.windsurf/extensions
